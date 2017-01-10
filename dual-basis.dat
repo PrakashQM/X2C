@@ -1,0 +1,38 @@
+
+# PYTHONPATH must include directory above plugin directory.
+#     Define either externally or here, then import plugin.
+sys.path.insert(0, './..')
+import x2c
+from p4util.util import *
+
+molecule {
+O
+H 1 R
+H 1 R 2 A
+
+R = 2.00
+A = 104.5
+symmetry c1
+units au
+}
+
+
+set {
+ basis cc-pvdz     
+ basis_un cc-pvdz-un     
+# e_convergence 14
+ scf_type pk
+ relativistic x2c
+# df_scf_guess false
+}
+
+set x2c {
+  do_tei false
+  print 1
+}
+
+energy('x2c')
+energy('scf')
+
+#x2c.rcd()
+

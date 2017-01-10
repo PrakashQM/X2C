@@ -1,0 +1,11 @@
+Makefile.*
+psi.*
+*.o
+*.d
+*.creator.*
+*.files
+*.includes
+*.config
+*.pyc
+*.pyc
+*.txt
